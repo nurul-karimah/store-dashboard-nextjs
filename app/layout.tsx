@@ -8,8 +8,8 @@ import ModalProvider from "@/providers/modal-provider";
 const font = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Toko Online",
-  description: "Toko Online",
+  title: "Herbalis",
+  description: "Produk Herbal Terbaik",
 };
 
 export default function RootLayout({

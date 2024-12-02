@@ -6,9 +6,10 @@ import IconButton from "./icon-button";
 import { Expand } from "lucide-react";
 import Currency from "./currency";
 import { useRouter } from "next/navigation";
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, useState } from "react";
 import PreviewModal from "../preview-modal";
 import usePreviewModal from "@/hooks/use-preview-modal";
+import FavoriteButton from "./favorite-button";
 
 interface ProductCardProps {
   data: Product;
@@ -17,21 +18,19 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const previewModal = usePreviewModal();
   const router = useRouter();
-
+  
   const handleClick = () => {
     router.push(`/product/${data?.id}`);
   };
 
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
-
     previewModal.onOpen(data);
   };
 
   return (
     <div
-      onClick={handleClick}
-      className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4"
+      className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4 shadow-xl"
     >
       {/* Images dan action */}
       <div className="aspect-square rounded-xl bg-gray-100 relative">
@@ -51,14 +50,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
         </div>
       </div>
       {/* Product Description */}
-      <div>
+      <div 
+      onClick={handleClick}
+      >
         <p className="font-semibold text-lg">{data.name}</p>
-        <p className="text-sm text-gray-500">{data.category?.name}</p>
+        <p className="text-sm text-gray-900">{data.category?.name}</p>
+        
+
       </div>
       {/* Harga */}
       <div className="flex items-center justify-between">
-        <Currency value={data?.price} />
-      </div>
+      <Currency value={data?.price} />
+        {/* <FavoriteButton /> */}
+        <FavoriteButton data={data} />
+        </div>
     </div>
   );
 };

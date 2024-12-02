@@ -15,6 +15,9 @@ export interface Product {
     category: Category;
     name: string;
     price: string;
+    description: string;
+    benefits?: string;
+    usage?: string;
     isFeatured: boolean;
     images: Image[]
 }
