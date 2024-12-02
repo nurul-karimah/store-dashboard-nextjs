@@ -9,7 +9,7 @@ interface Query {
   search?: string; // Menambahkan parameter search
 }
 
-const getProducts = async (query: Query): Promise<Product[]> => {
+const getItems = async (query: Query): Promise<Product[]> => {
   const url = qs.stringifyUrl({
     url: URL,
     query: {
@@ -24,4 +24,4 @@ console.log(url)
   return res.json();
 };
 
-export default getProducts;
+export default getItems;

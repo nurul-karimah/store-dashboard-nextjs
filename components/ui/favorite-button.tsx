@@ -43,11 +43,11 @@ export default function FavoriteButton({ data }: FavoriteButtonProps) {
     <Checkbox
       checked={enabled}
       onChange={handleChange}
-      className="group relative flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 transition-colors bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+      className="group relative flex items-center justify-center w-7 h-7 lg:w-10 lg:h-10 rounded-full border border-gray-300 transition-colors bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
       title="Tambahkan ke favorit"
     >
       <Heart
-        className={`w-6 h-6 transition-transform ${
+        className={`w-5 h-5 lg:w-6 lg:h-6 transition-transform ${
           enabled ? "fill-red-500 stroke-red-500 scale-110" : "stroke-gray-500"
         }`}
         fill={enabled ? "red" : "none"}

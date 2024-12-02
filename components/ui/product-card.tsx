@@ -49,21 +49,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
           </div>
         </div>
       </div>
-      {/* Product Description */}
-      <div 
-      onClick={handleClick}
-      >
-        <p className="font-semibold text-lg">{data.name}</p>
-        <p className="text-sm text-gray-900">{data.category?.name}</p>
-        
-
-      </div>
+      <div className="flex items-center justify-between relative">
       {/* Harga */}
-      <div className="flex items-center justify-between">
       <Currency value={data?.price} />
         {/* <FavoriteButton /> */}
         <FavoriteButton data={data} />
         </div>
+      {/* Product Description */}
+      <div 
+      onClick={handleClick}
+      // className="absolute"
+      >
+        <p className="font-bold text-xs lg:text-lg">{data.name}</p>
+        <p className="lg:text-sm text-xs text-gray-900">{data.category?.name}</p>
+      </div>
+      
     </div>
   );
 };
