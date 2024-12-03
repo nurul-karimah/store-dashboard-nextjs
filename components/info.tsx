@@ -34,7 +34,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
         <div className="lg:text-2xl text-gray-900">
           <Currency value={data?.price} />
         </div>
-        <p className="text-gray-500">{data?.category?.name}</p>
+        <div className="text-gray-500">{data?.category?.name}</div>
       </div>
       <hr className="my-4" />
       {/* Tombol Chat dan Favorite */}
