@@ -59,7 +59,7 @@ const HomePage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search); // Update debouncedSearch setelah delay
-    }, 500); // 500ms delay
+    }, 250); // 500ms delay
 
     return () => clearTimeout(timer); // Bersihkan timer jika search berubah
   }, [search]);
