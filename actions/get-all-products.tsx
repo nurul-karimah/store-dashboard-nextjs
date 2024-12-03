@@ -1,13 +1,6 @@
 import { Product } from "@/types";
 
-import qs from "query-string";
-
-const URL = `http://localhost:3000/api/c2752ab2-c6ea-4018-bf25-dc0f59eb1687/items`;
-
-interface Query {
-  categoryId?: string;
-  isFeatured?: boolean;
-}
+const URL = `${process.env.PUBLIC_API_URL}/items`
 
 const getAllProducts = async (): Promise<Product[]> => {
   const url = URL;

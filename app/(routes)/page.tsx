@@ -44,10 +44,10 @@ const HomePage = () => {
     setAllProducts(fetchAllProducts);
 
   }, []);
-
+  
   // Fungsi untuk memuat banner
   const loadBanner = useCallback(async () => {
-    const fetchedBanner = await getBanner("4e264b9a-bf37-4d78-b868-ef503aeaa35b");
+    const fetchedBanner = await getBanner("ba568ea9-fcdd-49a2-89f1-f9a3d87c4f36");
     setBanner(fetchedBanner);
   }, []);
 
