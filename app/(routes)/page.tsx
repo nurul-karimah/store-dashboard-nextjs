@@ -7,13 +7,14 @@ import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
 import SearchButton from "@/components/ui/search-button";
 import Banner from "@/components/banner";
+import NoResults from "@/components/ui/no-results"; // Pastikan NoResults ada
 import { Product } from "@/types";
 
 const HomePage = () => {
   const [search, setSearch] = useState(""); // State untuk input pencarian
   const [debouncedSearch, setDebouncedSearch] = useState(""); // State untuk pencarian setelah debounce
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]); // Produk unggulan
-  const [allProducts, setAllProducts] = useState<Product[]>([]); // Produk unggulan
+  const [allProducts, setAllProducts] = useState<Product[]>([]); // Semua produk
   const [searchResults, setSearchResults] = useState<Product[]>([]); // Hasil pencarian produk
   const [banner, setBanner] = useState<any>(null); // State untuk banner
   const [loading, setLoading] = useState(false); // Loading state
@@ -38,11 +39,14 @@ const HomePage = () => {
 
   // Fungsi untuk memuat produk unggulan
   const loadFeaturedProducts = useCallback(async () => {
-    const fetchedProducts = await getProducts({ isFeatured: true });
-    const fetchAllProducts = await getItems({});
-    setFeaturedProducts(fetchedProducts);
-    setAllProducts(fetchAllProducts);
-
+    try {
+      const fetchedProducts = await getProducts({ isFeatured: true });
+      const fetchAllProducts = await getItems({});
+      setFeaturedProducts(fetchedProducts);
+      setAllProducts(fetchAllProducts);
+    } catch (error) {
+      console.error("Error loading products:", error);
+    }
   }, []);
   
   // Fungsi untuk memuat banner
@@ -96,11 +100,16 @@ const HomePage = () => {
               <ProductList title="Hasil Pencarian" items={searchResults} />
             ) : (
               <>
-                <ProductList title="Produk Unggulan" items={featuredProducts} />
-                <ProductList title="Semua Produk" items={allProducts} />
+                {featuredProducts.length > 0 && allProducts.length > 0 ? (
+                  <>
+                    <ProductList title="Produk Unggulan" items={featuredProducts} />
+                    <ProductList title="Semua Produk" items={allProducts} />
+                  </>
+                ) : (
+                  <NoResults />
+                )}
               </>
             )}
-
           </div>
         )}
       </div>
