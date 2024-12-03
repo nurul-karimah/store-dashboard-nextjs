@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 interface SearchButtonProps {
   search: string; // Nilai pencarian dari luar
@@ -12,7 +12,7 @@ const SearchButton: React.FC<SearchButtonProps> = ({
   onSearchChange,
   placeholder = "Cari...",
   className = "",
-}: SearchButtonProps) => {
+}) => {
   return (
     <div className="flex justify-center my-4">
       <input
