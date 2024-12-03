@@ -18,8 +18,8 @@ const Info: React.FC<InfoProps> = ({ data }) => {
   const URL = `${window.location.origin}/product/${data.id}`;
   const telp = process.env.NEXT_PUBLIC_TELP;
   const pesan = `Halo saya ingin membeli\n\nNama Produk: ${data.name}\n\nHarga: ${data.price}\n\nLink: ${URL}`;
-  const encodedPesan = encodeURIComponent(pesan); // Encode pesan
-  const link = `https://wa.me/${telp}?text=${encodedPesan}`;
+  const link = `https://wa.me/${telp}?text=${encodeURIComponent(pesan)}`;
+  
   
 
   // State untuk accordion
