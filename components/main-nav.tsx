@@ -39,13 +39,13 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
 
         {/* Dropdown menu for mobile */}
         {isMenuOpen && (
-          <div className="lg:hidden flex flex-col absolute top-12 right-16 z-50 bg-white shadow-md p-4">
+          <div className="lg:hidden flex flex-col absolute top-12 right-16 z-50 bg-white shadow-md p-8">
             {routes.map((route) => (
               <Link
                 key={route.href}
                 href={route.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-black",
+                  "text-base font-medium transition-colors hover:text-black",
                   route.active ? "text-black" : "text-neutral-500"
                 )}
               >
@@ -54,7 +54,7 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
             ))}
             <Link
               href="/favorite"
-              className="text-sm flex font-medium transition-colors hover:text-black"
+              className="text-base flex font-medium transition-colors hover:text-black"
             >
               Favorites
               {/* <Heart size={15} /> */}

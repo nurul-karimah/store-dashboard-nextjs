@@ -6,7 +6,7 @@ interface BannerProps {
 
 const Banner: React.FC<BannerProps> = ({ data }) => {
   return (
-    <div className="px-4 sm:px-6 lg:px-8 rounded-xl overflow-hidden">
+    <div className="p-4 sm:px-6 lg:px-8 rounded-xl overflow-hidden">
       <div
         className="rounded-xl relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-cover"
         style={{ backgroundImage: `url(${data?.imageUrl})` }}
